@@ -60,7 +60,25 @@ class handDetector():
 
         return lmlist
 
+    def fingersUp(self,lmList):
+        fingertips = [4, 8, 12, 16, 20]
+        Open_fingers = []
+        if len(lmList) != 0:
 
+            #Thumb
+            if lmList[fingertips[0]][1] < lmList[fingertips[0] - 1][1]:
+                Open_fingers.append(1)
+            else:
+                Open_fingers.append(0)
+
+
+            for tip in range(1,5):
+                if lmList[fingertips[tip]][2] < lmList[fingertips[tip] -2][2]:
+                    Open_fingers.append(1)
+                else:
+                    Open_fingers.append(0)
+
+            return Open_fingers
 def main():
     cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
     detector = handDetector()
@@ -69,6 +87,8 @@ def main():
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
+
+        detector.fingersUp(lmList)
 
         cv2.imshow("Video", img)
         if cv2.waitKey(1) == ord('q'):
