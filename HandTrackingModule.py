@@ -85,6 +85,7 @@ def main():
 
     while True:
         success, img = cap.read()
+        img = cv2.flip(img, 1)
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
 

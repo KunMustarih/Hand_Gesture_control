@@ -31,6 +31,7 @@ def Volume_down():
 while True:
     success, img = cap.read()
     img = detector.findHands(img)
+    img = cv2.flip(img, 1)
     lmlist = detector.findPosition(img, draw=False)
     if len(lmlist) != 0:
         a = detector.fingersUp(lmlist)
