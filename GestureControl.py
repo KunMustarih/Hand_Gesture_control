@@ -36,11 +36,11 @@ while True:
     if len(lmlist) != 0:
         a = detector.fingersUp(lmlist)
 
-        if a == [0, 1, 0, 0, 0] and state == "play":
+        if a == [0, 0, 0, 0, 0] and state == "play":
             pause_video()
             state = "pause"
 
-        if a == [0, 1, 1, 0, 0] and state == "pause":
+        if a == [1, 1, 1, 1, 1] and state == "pause":
             play_video()
             state = "play"
 
