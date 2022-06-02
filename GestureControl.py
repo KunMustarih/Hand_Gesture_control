@@ -10,7 +10,7 @@ cap.set(3, WCAM)
 cap.set(4, HCAM)
 
 detector = htm.handDetector(detectionCon=0.7)
-pyautogui.getWindowsWithTitle("vlc")[0].activate()
+pyautogui.getWindowsWithTitle("vlc")[0].maximize()
 pyautogui.press('space')
 
 
