@@ -21,7 +21,12 @@ cap.set(4, HCAM)
 
 detector = htm.handDetector(detectionCon=0.7)
 
+def move_backward():
+    pyautogui.press('left')
 
+
+def move_forward():
+    pyautogui.press('right')
 
 
 while True:
@@ -39,11 +44,12 @@ while True:
         # if a == [0, 1, 1, 1, 1]:
         #     Volume_Up()
         #
-        # if a == [0, 1, 0, 0, 0]:
-        #     move_backward()
-        #
-        # if a == [0, 1, 1, 0, 0]:
-        #     move_forward()
+        if a == [0, 0, 0, 0, 1]:
+            move_backward()
+
+        if a == [1, 0, 0, 0, 0]:
+            move_forward()
 
     cv2.imshow("Video", img)
     cv2.waitKey(1)
+
