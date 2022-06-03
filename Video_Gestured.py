@@ -67,4 +67,7 @@ while True:
             move_forward()
 
     cv2.imshow("Video", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
     cv2.waitKey(1)
+

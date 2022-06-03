@@ -9,7 +9,7 @@ class handDetector():
         self.mode = mode
         self.maxHands = maxHands
         self.detectionCon = detectionCon
-        self.modelComplex = modelComplexity
+        self.modelComplex = modelComplexity 
         self.trackCon = trackCon
         self.mpHands = mp.solutions.hands
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelComplex,
@@ -92,9 +92,8 @@ def main():
         detector.fingersUp(lmList)
 
         cv2.imshow("Video", img)
-        if cv2.waitKey(1) == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
     cap.release()
     cv2.destroyAllWindows()
 
